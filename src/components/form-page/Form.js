@@ -24,19 +24,9 @@ function Form() {
         }
     }
 
-    // const testdata = {
-    //     "name": "Beth Harmon",
-    //     "email": "beth@redberry.ge",
-    //     "phone": "598125819",
-    //     "date_of_birth": "10/20/1997",
-    //     "experience_level": "beginner",
-    //     "already_participated": true,
-    //     "character_id": 2
-    // }
 
     const submitHandler = () => {
         console.log(formData);
-        // console.log(testdata);
         axios.post("https://chess-tournament-api.devtest.ge/api/register", formData)
         .then(response => {
             console.log(response);

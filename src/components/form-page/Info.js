@@ -7,6 +7,9 @@ function Info({ formData, setFormData }) {
                 type="text" 
                 placeholder="name" 
                 value={formData.name}
+                onBlur={(e)=> {
+                    alert('ok')
+                }}
                 onChange={(event) =>
                     setFormData({ ...formData, name: event.target.value })
                 }

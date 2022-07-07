@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Select from "./Select";
 
 function Experience({ formData, setFormData }) {
 
     const [data, setData] = useState(null);
+    const [optionSize, setOptionSize] = useState(null);
     const url = "https://chess-tournament-api.devtest.ge/api/grandmasters";
     useEffect(() => {
         axios.get(url)
@@ -38,19 +40,11 @@ function Experience({ formData, setFormData }) {
                     type="radio" value={false} name="radio"
                     onChange={() =>setFormData({ ...formData, already_participated: true })}
                 />
-                <input 
-                    type="number" 
-                    placeholder="character_id" 
-                    value={formData.character_id}
-                    onChange={(event) =>
-                        setFormData({ ...formData, character_id: +event.target.value })
-                    }
+                <Select 
+                    options={data} 
+                    formData={formData}
+                    setFormData={setFormData}
                 />
-                <select>
-                    {data.map((item) => {
-                        return <option style={{backgroundImage: `url("https://chess-tournament-api.devtest.ge/"${item.image})` }}>{item.id}</option>
-                    })}  
-                </select> 
             </div>
         )
     }
