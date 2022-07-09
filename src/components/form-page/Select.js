@@ -45,14 +45,12 @@ const ListItem = styled("li")`
   }
 `;
 
-export default function Select({options, formData, setFormData }) {
+export default function Select({options, formData, setFormData, images}) {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(null);
 
   const toggling = () => setIsOpen(!isOpen);
 
   const onOptionClicked = value => () => {
-    setSelectedOption(value);
     setIsOpen(false);
     setFormData({ ...formData, character_id: value })
   };
@@ -60,7 +58,9 @@ export default function Select({options, formData, setFormData }) {
   return (
       <DropDownContainer>
         <DropDownHeader onClick={toggling}>
-          {formData.character_id || "Mangoes"}
+        {
+          formData.character_id ? options[formData.character_id - 1]['name'] : "select"
+        }
         </DropDownHeader>
         {isOpen && (
           <DropDownListContainer>

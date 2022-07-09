@@ -26,7 +26,6 @@ function Form() {
 
 
     const submitHandler = () => {
-        console.log(formData);
         axios.post("https://chess-tournament-api.devtest.ge/api/register", formData)
         .then(response => {
             console.log(response);
@@ -49,10 +48,9 @@ function Form() {
                     onClick={() => {
                     if (page === 1) {
                         submitHandler();
-                        console.log(formData);
-                    } else {
+                    } 
+                    if(page === 0) {
                         setPage((currPage) => currPage + 1);
-                        console.log(page)
                     }
                     }}
                 >

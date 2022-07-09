@@ -1,0 +1,7 @@
+input:invalid[focus="true"] {
+    background: red;
+}
+
+::placeholder {
+    color: red;
+}
