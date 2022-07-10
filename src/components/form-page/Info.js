@@ -10,9 +10,13 @@ function Info({ formData, setFormData }) {
 
     return (
         <div className="personal-info-container">
+            <div className="about-page">
+                <h2>Personal information</h2>
+                <p>The Basic Information Field</p>
+            </div>
             <Input 
                 type="text" 
-                placeholder="name" 
+                placeholder="Name" 
                 pattern={'^[a-zA-Z0-9_.+-]*(?:[a-zA-Z][a-zA-Z0-9_.+-]*){2,}$'}
                 value={formData.name}
                 required
@@ -22,7 +26,7 @@ function Info({ formData, setFormData }) {
             />
             <Input
                 type="text" 
-                placeholder="email" 
+                placeholder="Email" 
                 value={formData.email}
                 pattern={"^[a-zA-Z0-9_.+-]+@(?:(?:[a-zA-Z0-9-]+\.)?[a-zA-Z]+\.)?(redberry)\.ge$"}
                 required
@@ -32,7 +36,7 @@ function Info({ formData, setFormData }) {
             />
             <Input
                 type="text" 
-                placeholder="phone" 
+                placeholder="Phone" 
                 value={formData.phone}
                 required
                 onChange={(event) =>
@@ -41,7 +45,7 @@ function Info({ formData, setFormData }) {
             />
             <Input
                 type="text" 
-                placeholder="date_of_birth" 
+                placeholder="Date of birth" 
                 value={formData.date_of_birth}
                 required
                 onChange={(event) =>

@@ -10,7 +10,6 @@ function Experience({ formData, setFormData }) {
         axios.get(url)
             .then(res => {
                 setData(res.data)
-                console.log(res.data)
             })
             .catch(err => {
                 console.log(err)
@@ -20,27 +19,37 @@ function Experience({ formData, setFormData }) {
     if(data){
         return (
             <div className="personal-info-container">
-                <input 
-                    type="text" 
-                    placeholder="experience_level" 
-                    value={formData.experience_level}
+                <div className="about-page">
+                    <h2>Personal information</h2>
+                    <p>The Basic Information Field</p>
+                </div>
+                <div className="selects">
+                <select
                     onChange={(event) =>
                         setFormData({ ...formData, experience_level: event.target.value })
                     }
-                />
-                <input 
-                    type="radio" value={true} name="radio" defaultChecked
-                    onChange={() => setFormData({ ...formData, already_participated: false })}
-                />
-                <input 
-                    type="radio" value={false} name="radio"
-                    onChange={() =>setFormData({ ...formData, already_participated: true })}
-                />
+                >
+                    <option value="beginner">Beginner</option>
+                    <option value="intermediate">Intermediate</option>
+                    <option value="professional">Professional</option>
+                </select>
                 <Select 
                     options={data} 
                     formData={formData}
                     setFormData={setFormData}
                     images={true}
+                />
+                </div>
+                <p>Have you participated in the Redberry Championship?</p>
+                <label>Yes</label>
+                <input 
+                    type="radio" value={true} name="radio" defaultChecked
+                    onChange={() => setFormData({ ...formData, already_participated: true })}
+                />
+                <label>No</label>
+                <input 
+                    type="radio" value={false} name="radio"
+                    onChange={() =>setFormData({ ...formData, already_participated: false })}
                 />
             </div>
         )

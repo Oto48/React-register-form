@@ -14,6 +14,18 @@ function PosterPage({page}) {
             <div className="title">
                 <img src={logo} />
             </div>
+            {page === 1 &&
+            <div className="first-quote">
+                <h2>"when you see a good move, look for a better one"</h2>
+                <p>-emanuel lasker</p>
+            </div>
+            }
+            {page === 2 &&
+            <div className="second-quote">
+                <h2>"many have become chess masters;<br/> no one has become the master of chess"</h2>
+                <p>-siegbert tarrasch</p>
+            </div>
+            }
         </div>
     )
 }
